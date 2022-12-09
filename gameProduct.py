@@ -27,3 +27,14 @@ while True:
 			
 			break
 #by reza moghaddas
+
+#rating
+
+while True:
+	print("please rate us, 1 to 5 star * ;)")
+	rate=int(input())
+	if rate != 5:
+		print("No can't enter " , rate ," , enter a better rate")
+	else: 
+		print("Thanksss")
+		break
