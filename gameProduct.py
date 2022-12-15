@@ -19,7 +19,7 @@ while True:
 			print("good your awnser is correct!")
 			
 	else:
-		print("Really!? cannot you even awnser this easy question? CA:",p)
+		print("Really!? It's not correct! , Answer: ",p)
 		
 		if ans == 0:
 			
