@@ -1,0 +1,3 @@
+Hello , This is a Simple Game for University Project
+The old Snake Game in Python
+And with using turtle
