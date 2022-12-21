@@ -6,13 +6,11 @@ import random as rand
 score = 0
 high_score = 0
 #make turtle setup
-tr.bgcolor('cyan')
-tr.shape('square')
-tr.color('red')
-tr.penup()
+tr.bgcolor('black')
+#snake setup
+snake = tr.Turtle()
+snake.penup()
+snake.shape("square")
+snake.color("cyan")
 
-tr.goto(50,40)
-target=tr.Turtle()
-tr.goto(-50,40)
-target.goto(40,100)
 tr.done()
