@@ -9,6 +9,8 @@ high_score = 0
 tr.bgcolor('cyan')
 tr.shape('square')
 tr.color('red')
+tr.penup()
+
 tr.goto(50,40)
 target=tr.Turtle()
 tr.goto(-50,40)
