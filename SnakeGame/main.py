@@ -2,13 +2,15 @@
 import turtle as tr
 import time
 import random as rand
-
 # init score and high score
 score = 0
 high_score = 0
+
 # make turtle setup
 tr.bgcolor('black')
+tr.title("@rezamqds | Snake Game")
 tr.speed(0)
+
 # score print
 sc = tr.Turtle()
 sc.speed(0)
@@ -33,6 +35,5 @@ food.color('green')
 food.penup()
 food.goto(-68, 135)
 
-
-
 tr.done()
+
