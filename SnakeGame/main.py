@@ -5,7 +5,7 @@ import random as rand
 
 # init score and high score
 score = 0
-high_score = 0
+high_score = 15
 print("Hello Welcome to @rezamqds 's snake game \n")
 GOD = False
 
