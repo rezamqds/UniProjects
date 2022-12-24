@@ -1,5 +1,6 @@
 # import modules
 import turtle as tr
+import time
 import random as rand
 
 # init score and high score
@@ -131,7 +132,9 @@ while True:
         # after Game over
         ScoreW.goto(0, 10)
         ScoreW.write("GAME OVER")
+        time.sleep(1.5)
         ScoreW.goto(0, 350)
         score=0
         ScoreW.clear()
         ScoreW.write("Score : %d  High Score : %d" % (score, high_score), align="center", font=("Arial", 24, 'normal'))
+        snake.color('cyan')
