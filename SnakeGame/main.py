@@ -5,7 +5,7 @@ import random as rand
 
 # init score and high score
 score = 0
-high_score = 15
+high_score = 35
 print("Hello Welcome to @rezamqds 's snake game \n")
 GOD = False
 
@@ -97,11 +97,19 @@ while not cond:
     screen.onkey(left, 'Left')
     screen.onkey(right, 'Right')
 
+    screen.listen()
+    screen.onkeypress(up,'w')
+    screen.onkeypress(down,"s")
+    screen.onkeypress(left,"a")
+    screen.onkeypress(right,"d")
+
     while snake.distance(food) < 20:
         randFood = rand.randint(5, 350)
         food.goto(randFood, randFood)
         score+=5
-
+        if score > high_score:
+            high_score = score
+        sc.clear()
         sc.write("Score : %d  High Score : %d" % (score, high_score), align="center", font=("Arial", 24, 'normal'))
 
 
