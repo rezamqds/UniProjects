@@ -143,12 +143,22 @@ while True:
         ScoreW.clear()
         ScoreW.write("Score : %d  High Score : %d" % (score, high_score), align="center", font=("Arial", 24, 'normal'))
         snake.color('cyan')
+        for segment in segments:
+            segment.goto(1000, 1000)
+        segments.clear()
 
     if snake.distance(food) < 20:
         randFood = rand.randint(-350, 350)
         ranF = rand.randint(-350, 350)
         food.goto(randFood, ranF)
 
+        # Adding segment
+        new_segment = tr.Turtle()
+        new_segment.speed(0)
+        new_segment.shape("square")
+        new_segment.color("orange")
+        new_segment.penup()
+        segments.append(new_segment)
 
         # Score +
         score += 5
@@ -157,5 +167,26 @@ while True:
         ScoreW.clear()
         ScoreW.write("Score : %d  High Score : %d" % (score, high_score), align="center", font=("Arial", 24, 'normal'))
 
+    # Checking for head collisions with body segments
+    for index in range(len(segments) - 1, 0, -1):
+        x = segments[index - 1].xcor()
+        y = segments[index - 1].ycor()
+        segments[index].goto(x, y)
+    if len(segments) > 0:
+        x = snake.xcor()
+        y = snake.ycor()
+        segments[0].goto(x, y)
+    # move()
 
+    for segment in segments:
+        if segment.distance(snake) < 20:
+            time.sleep(1)
+            snake.goto(0, 0)
+            snake.direction = "stop"
+            snake.shape("square")
+            snake.color("cyan")
+            for segment in segments:
+                segment.goto(1000, 1000)
+            segment.clear()
 
+    # screen.mainloop()
