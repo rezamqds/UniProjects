@@ -129,20 +129,6 @@ while True:
     screen.update()
     snake.forward(speed)
 
-    if snake.distance(food) < 20:
-        randFood = rand.randint(-350, 350)
-        ranF = rand.randint(-350, 350)
-        food.goto(randFood, ranF)
-
-
-        # Score +
-        score += 5
-        if score > high_score:
-            high_score = score
-        ScoreW.clear()
-        ScoreW.write("Score : %d  High Score : %d" % (score, high_score), align="center", font=("Arial", 24, 'normal'))
-
-
     # Game over cond
     if snake.xcor() > conSize or snake.xcor() < -conSize or snake.ycor() > conSize or snake.ycor() < -conSize:
         cond = True
@@ -157,3 +143,19 @@ while True:
         ScoreW.clear()
         ScoreW.write("Score : %d  High Score : %d" % (score, high_score), align="center", font=("Arial", 24, 'normal'))
         snake.color('cyan')
+
+    if snake.distance(food) < 20:
+        randFood = rand.randint(-350, 350)
+        ranF = rand.randint(-350, 350)
+        food.goto(randFood, ranF)
+
+
+        # Score +
+        score += 5
+        if score > high_score:
+            high_score = score
+        ScoreW.clear()
+        ScoreW.write("Score : %d  High Score : %d" % (score, high_score), align="center", font=("Arial", 24, 'normal'))
+
+
+
