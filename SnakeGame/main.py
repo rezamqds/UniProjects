@@ -113,7 +113,7 @@ while True:
     screen.update()
     snake.forward(speed)
 
-    while snake.distance(food) < 20:
+    if snake.distance(food) < 20:
         randFood = rand.randint(-350, 350)
         ranF = rand.randint(-350, 350)
         food.goto(randFood, ranF)
