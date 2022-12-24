@@ -7,23 +7,25 @@ import random as rand
 score = 0
 high_score = 0
 print("Hello Welcome to @rezamqds 's snake game \n")
+GOD = False
 
-# x = int(input("!!! Please enter width(X) !!! : "))
-# y = int(input("!!! Please enter height(Y) !!! : "))
-
-x = y = 600
-if x == 1337:
+'''
+name=input("please enter your name: ")
+if name == 'god' or 'GOD' or 'God':
     score = 9999
     high_score = 9999
-    x = 850
-    y = 850
-    God = True
+    GOD = True
+'''
 
 # make turtle setup
+Size = 850
 screen = tr.Screen()
-# screen.setup(width=x, height=y)
+screen.setup(width=Size, height=Size)
 screen.bgcolor('black')
-screen.title("@rezamqds | Snake Game")
+if GOD == True:
+    screen.title("@rezamqds | Snake Game | GOD!!")
+else:
+    screen.title("@rezamqds | Snake Game")
 
 # score print
 sc = tr.Turtle()
@@ -34,7 +36,23 @@ sc.hideturtle()
 sc.goto(0, 350)
 sc.write("Score : %d  High Score : %d" % (score, high_score), align="center", font=("Arial", 24, 'normal'))
 sc.goto(300, -200)
-sc.write("GOD mode ;)")
+if GOD == True:
+    sc.write("GOD mode ;)")
+
+# Game Border
+border=tr.Turtle()
+w=400
+border.speed(8)
+border.penup()
+border.hideturtle()
+border.goto(w,w)
+border.color('red')
+border.pendown()
+border.pensize(20)
+border.goto(w,-w)
+border.goto(-w,-w)
+border.goto(-w,w)
+border.goto(w,w)
 
 # snake setup
 snake = tr.Turtle()
@@ -59,15 +77,19 @@ screen.onkeypress("a")
 screen.onkeypress("d")
 
 # set conditions
-cond = snake.xcor() > x or snake.xcor() < -x or snake.ycor() > y or snake.ycor() < -y
-
-while cond==False:
+cond = False
+consize = 380
+while not cond:
     screen.update()
     x = snake.xcor()
-    snake.setx(x+2)
-    snake.color('red')
-    tr.done()
-    
+    snake.setx(x + 5)
+    if snake.xcor() > consize or snake.xcor() < -consize or snake.ycor() > consize or snake.ycor() < -consize:
+        cond = True
+        snake.goto(0, 0)
+        sc.goto(0, 0)
+        sc.write("GAME OVER")
+        tr.done()
+
 while snake.distance(food) < 20:
     x = rand.randint(10, 600)
     y = rand.randint(10, 600)
