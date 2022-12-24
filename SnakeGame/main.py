@@ -68,13 +68,10 @@ food.speed(0)
 food.shape('circle')
 food.color('green')
 food.penup()
-x = rand.randint(100, 700)
-y = rand.randint(100, 700)
-food.goto(x, y)
+randFood = rand.randint(5, 350)
+food.goto(randFood,randFood)
+# def for angle of snake
 
-
-
-speed = 1
 def up():
     snake.setheading(90)
 def down():
@@ -84,14 +81,8 @@ def left():
 def right():
     snake.setheading(0)
 
-
-
-screen.listen()
-screen.onkey(up, 'Up')
-screen.onkey(down, 'Down')
-screen.onkey(left, 'Left')
-screen.onkey(right, 'Right')
-
+speed = 3
+sc.goto(0, 350)
 # set conditions
 cond = False
 consize = 380
@@ -99,23 +90,29 @@ while not cond:
     screen.update()
     snake.forward(speed)
 
+    # Move with arrow keys
     screen.listen()
-    screen.onkeypress('w')
-    screen.onkeypress("s")
-    screen.onkeypress("a")
-    screen.onkeypress("d")
+    screen.onkey(up, 'Up')
+    screen.onkey(down, 'Down')
+    screen.onkey(left, 'Left')
+    screen.onkey(right, 'Right')
 
+    while snake.distance(food) < 20:
+        randFood = rand.randint(5, 350)
+        food.goto(randFood, randFood)
+        score+=5
+
+        sc.write("Score : %d  High Score : %d" % (score, high_score), align="center", font=("Arial", 24, 'normal'))
+
+
+
+    # Game over cond
     if snake.xcor() > consize or snake.xcor() < -consize or snake.ycor() > consize or snake.ycor() < -consize:
         cond = True
         snake.color('red')
         snake.goto(0, 0)
-
+        #after Game over
         sc.goto(0, 10)
         sc.write("GAME OVER")
 
-        tr.done()
 
-while snake.distance(food) < 20:
-    x = rand.randint(10, 600)
-    y = rand.randint(10, 600)
-    food.goto(x, y)
