@@ -4,7 +4,7 @@ import random as rand
 
 # init score and high score
 score = 0
-high_score = 35
+high_score = 0
 print("Hello Welcome to @rezamqds 's snake game \n")
 GOD = False
 
@@ -27,16 +27,16 @@ else:
     screen.title("@rezamqds | Snake Game")
 
 # score print
-sc = tr.Turtle()
-sc.speed(0)
-sc.color("white")
-sc.penup()
-sc.hideturtle()
-sc.goto(0, 350)
-sc.write("Score : %d  High Score : %d" % (score, high_score), align="center", font=("Arial", 24, 'normal'))
-sc.goto(300, -200)
+ScoreW = tr.Turtle()
+ScoreW.speed(0)
+ScoreW.color("white")
+ScoreW.penup()
+ScoreW.hideturtle()
+ScoreW.goto(0, 350)
+ScoreW.write("Score : %d  High Score : %d" % (score, high_score), align="center", font=("Arial", 24, 'normal'))
+ScoreW.goto(300, -200)
 if GOD:
-    sc.write("GOD mode ;)")
+    ScoreW.write("GOD mode ;)")
 
 # Game Border
 border = tr.Turtle()
@@ -104,9 +104,10 @@ screen.onkeypress(left, "a")
 screen.onkeypress(right, "d")
 
 speed = 3
-sc.goto(0, 350)
+ScoreW.goto(0, 350)
 
 conSize = 380
+
 while True:
     screen.update()
     snake.forward(speed)
@@ -119,8 +120,8 @@ while True:
         score += 5
         if score > high_score:
             high_score = score
-        sc.clear()
-        sc.write("Score : %d  High Score : %d" % (score, high_score), align="center", font=("Arial", 24, 'normal'))
+        ScoreW.clear()
+        ScoreW.write("Score : %d  High Score : %d" % (score, high_score), align="center", font=("Arial", 24, 'normal'))
 
     # Game over cond
     if snake.xcor() > conSize or snake.xcor() < -conSize or snake.ycor() > conSize or snake.ycor() < -conSize:
@@ -128,6 +129,9 @@ while True:
         snake.color('red')
         snake.goto(0, 0)
         # after Game over
-        sc.goto(0, 10)
-        sc.write("GAME OVER")
-
+        ScoreW.goto(0, 10)
+        ScoreW.write("GAME OVER")
+        ScoreW.goto(0, 350)
+        score=0
+        ScoreW.clear()
+        ScoreW.write("Score : %d  High Score : %d" % (score, high_score), align="center", font=("Arial", 24, 'normal'))
