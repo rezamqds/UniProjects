@@ -134,11 +134,6 @@ while True:
         ranF = rand.randint(-350, 350)
         food.goto(randFood, ranF)
 
-        while True:
-            x = snake.xcor()
-            y = snake.ycor()
-            snake2.goto(x - 10, y - 10)
-            break
 
         # Score +
         score += 5
