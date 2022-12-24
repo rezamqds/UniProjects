@@ -1,6 +1,5 @@
 # import modules
 import turtle as tr
-import time
 import random as rand
 
 # init score and high score
@@ -22,7 +21,7 @@ Size = 850
 screen = tr.Screen()
 screen.setup(width=Size, height=Size)
 screen.bgcolor('black')
-if GOD == True:
+if GOD:
     screen.title("@rezamqds | Snake Game | GOD!!")
 else:
     screen.title("@rezamqds | Snake Game")
@@ -36,7 +35,7 @@ sc.hideturtle()
 sc.goto(0, 350)
 sc.write("Score : %d  High Score : %d" % (score, high_score), align="center", font=("Arial", 24, 'normal'))
 sc.goto(300, -200)
-if GOD == True:
+if GOD:
     sc.write("GOD mode ;)")
 
 # Game Border
@@ -68,8 +67,9 @@ food.speed(0)
 food.shape('circle')
 food.color('green')
 food.penup()
-randFood = rand.randint(5, 350)
-food.goto(randFood, randFood)
+randFood = rand.randint(-350, 350)
+ranF = rand.randint(-350, 350)
+food.goto(randFood, ranF)
 
 
 # def for angle of snake
@@ -89,6 +89,7 @@ def left():
 def right():
     snake.setheading(0)
 
+
 # Move with arrow keys
 screen.listen()
 screen.onkey(up, 'Up')
@@ -105,14 +106,16 @@ screen.onkeypress(right, "d")
 speed = 3
 sc.goto(0, 350)
 
-consize = 380
+conSize = 380
 while True:
     screen.update()
     snake.forward(speed)
 
     while snake.distance(food) < 20:
-        randFood = rand.randint(5, 350)
-        food.goto(randFood, randFood)
+        randFood = rand.randint(-350, 350)
+        ranF = rand.randint(-350, 350)
+        food.goto(randFood, ranF)
+
         score += 5
         if score > high_score:
             high_score = score
@@ -120,10 +123,11 @@ while True:
         sc.write("Score : %d  High Score : %d" % (score, high_score), align="center", font=("Arial", 24, 'normal'))
 
     # Game over cond
-    if snake.xcor() > consize or snake.xcor() < -consize or snake.ycor() > consize or snake.ycor() < -consize:
+    if snake.xcor() > conSize or snake.xcor() < -conSize or snake.ycor() > conSize or snake.ycor() < -conSize:
         cond = True
         snake.color('red')
         snake.goto(0, 0)
         # after Game over
         sc.goto(0, 10)
         sc.write("GAME OVER")
+
