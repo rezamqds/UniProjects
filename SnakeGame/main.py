@@ -9,13 +9,11 @@ high_score = 0
 print("Hello Welcome to @rezamqds 's snake game \n")
 GOD = False
 
-'''
 name=input("please enter your name: ")
-if name == 'god' or 'GOD' or 'God':
+if name == 'god':
     score = 9999
     high_score = 9999
     GOD = True
-'''
 
 # make turtle setup
 Size = 850
@@ -133,9 +131,9 @@ while True:
             ScoreW.goto(0, 10)
             ScoreW.write("GAME OVER")
             snake.color('red')
+            score = 0
         time.sleep(1.5)
         ScoreW.goto(0, 350)
-        score = 0
         ScoreW.clear()
         ScoreW.write("Score : %d  High Score : %d" % (score, high_score), align="center", font=("Arial", 24, 'normal'))
         snake.color('cyan')
