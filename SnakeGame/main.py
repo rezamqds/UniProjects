@@ -94,15 +94,10 @@ food.goto(randFood, ranF)
 
 def up():
     snake.setheading(90)
-
 def down():
     snake.setheading(270)
-
-
 def left():
     snake.setheading(180)
-
-
 def right():
     snake.setheading(0)
 
@@ -131,12 +126,13 @@ while True:
 
     # Game over cond
     if snake.xcor() > conSize or snake.xcor() < -conSize or snake.ycor() > conSize or snake.ycor() < -conSize:
-        cond = True
-        snake.color('red')
+
         snake.goto(0, 0)
         # after Game over
-        ScoreW.goto(0, 10)
-        ScoreW.write("GAME OVER")
+        if not GOD:
+            ScoreW.goto(0, 10)
+            ScoreW.write("GAME OVER")
+            snake.color('red')
         time.sleep(1.5)
         ScoreW.goto(0, 350)
         score = 0
