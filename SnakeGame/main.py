@@ -133,6 +133,8 @@ while True:
             snake.color('red')
             score = 0
             time.sleep(1.5)
+        if GOD:
+            score+=666
         ScoreW.goto(0, 350)
         ScoreW.clear()
         ScoreW.write("Score : %d  High Score : %d" % (score, high_score), align="center", font=("Arial", 24, 'normal'))
