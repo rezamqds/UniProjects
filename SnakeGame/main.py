@@ -135,6 +135,7 @@ while True:
             time.sleep(1.5)
         if GOD:
             score+=666
+            snake.goto(randFood+25,ranF+25)
         ScoreW.goto(0, 350)
         ScoreW.clear()
         ScoreW.write("Score : %d  High Score : %d" % (score, high_score), align="center", font=("Arial", 24, 'normal'))
