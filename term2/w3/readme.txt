@@ -1,0 +1,3 @@
+just init the project 
+this python file is like a site that you can sign in / up and also read the users 
+check password length and also strongness cheking ...
