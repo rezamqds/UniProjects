@@ -4,11 +4,3 @@ amir
 7530
 reza
 mew12
-ref
-/bin/python3 /home/r3x4/Desktop/week3prj/Site_test.py
-/bin/python3 /home/r3x4/Desktop/week3prj/Site_test.py
-/bin/python3 /home/r3x4/Desktop/week3prj/Site_test.py
-/bin/python3 /home/r3x4/Desktop/week3prj/Site_test.py
-/bin/python3 /home/r3x4/Desktop/week3prj/Site_test.py
-iu
-/bin/python3 /home/r3x4/Desktop/week3prj/Site_test.py
