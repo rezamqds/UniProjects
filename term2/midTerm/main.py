@@ -1,4 +1,4 @@
-import check_ath, viewDrug , editDrug
+import check_ath, viewDrug, editDrug, checkDName
 from clsClear import clear as cl3
 from time import sleep
 
@@ -17,10 +17,11 @@ while not logedIn:
     
         except ValueError:
             cl3()
-            print("\t\tInvalid input. Please enter Numbers!")
+            print("\t\t!!!! Invalid input. Please enter Numbers !!!!")
 
 
         else:
+            # add try except for each optins ==66== !!!!!
             if loginFlag == 1 :
                 cl3()
                 print("\t\tHello manager!")
@@ -50,46 +51,80 @@ while not logedIn:
                         while leave.lower() == 'n' :
                             print("your seassion reamining 3 sec more")
                             sleep(3)
-                            leave = input("Do you want to beck to menu ? y/n ")
-                           
-                            print("taking to menu",end="")
-                            for dot in range(3):
-                                sleep(.3)
-                                print('.')
+                            leave = input("Do you want to beck to menu? y[or Enter] / n ")
+                            
+                        print("taking to menu",end="")
+                        for dot in range(3):
+                            print('.')
+                            sleep(0.2)
 
                     elif listChoose == 2:
-                        lizza = int(input("Do you want 1.Add 2.Replace or 3.Remove ?"))
+                        cl3()
+                        lizza = int(input("Do you want \n1.Add \n2.Replace \n3.Remove \n----> "))
                         if lizza == 1 :
+                            # Add ...
                             isTrue = False
                             while isTrue != "y":
                                 newDrug = input("Please Enter the name of the drug : ")
-                                if newDrug[0].isupper():
-                                    print("yes upper")
-                                else :
+                                if not newDrug[0].isupper():
+                                #     pass
+                                #     # print("yes upper")
+                                # else :
+                                    # captalize the drug name !!
                                     newDrug = newDrug.capitalize()
                                 
                                 print("is it true ? ",newDrug)
                                 isTrue = input(" y / n ?")
-                                if Trrrr.lower() == y:
+                                cl3()
+                                if isTrue.lower() == 'y':
                                     # it should be saved in the lists and then BREAKKKK -- checcked =00=
                                     editDrug.addList(newDrug)
+                                    sleep(2.5)
                                     # pass
                                     break
                                 else :
                                     cl3()
-                                    print("you can enter them again :) ...")
+                                    print("\tyou can enter thar again ...")
                             
-                            print("Saved Corectly :) ...\nBack to main menu ...")
-                            sleep(0.8)
+                            print("taking back to main menu ...")
+                            sleep(1.6)
 
                         elif lizza == 2 :
                             # Replace ...
-                            print("")
-
+                            viewDrug.showList()
+                            repDrugNum = int(input("\n--->Enter the number of drugs that you wanna replace: "))
+                            repDrugName = checkDName.chkname()
+                            editDrug.repList(repDrugName, repDrugNum)
+                            print("Success!")
+                            vw = input("Do you want to see new list? y/n ")
+                            if vw == 'y':
+                                cl3()
+                                viewDrug.showList()
+                                if input("back to menu? y/n ") == 'n' :
+                                    print("ss uptime 2 sec")
+                                    sleep(2)
+                                    
+                                sleep(1.5)
 
                         elif lizza == 3 :
                             # Remove
-                            pass
+                            viewDrug.showList()
+                            rmDrugNum = int(input("\n--->Enter the number of drugs that you wanna remove: "))
+                            drugs = open('drugList.txt','r')
+                            # lenD = len(drugs.readlines())
+                            co = 0
+                            for i in drugs:
+                                co += 1
+                                if co == rmDrugNum:
+                                    surmnt = input()(f"Are you sure you wanna del {i}? y/n ")
+                                    break
+                            if surmnt == "y":
+                                                        #use the def for del the val !!!
+                                pass
+                            else :
+                                print("Taking back to main menu ...")
+                                sleep(secs)
+                                
 
 
 
@@ -108,5 +143,5 @@ while not logedIn:
                 print("\t\tHello Customer what do you need?")
             else:
                 cl3()
-                print("\t\tPlease enter list numbers! Try Again")
+                print("\t\t!!!! Please enter list numbers! Try Again !!!!")
                 
