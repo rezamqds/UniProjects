@@ -13,3 +13,18 @@ finished time = 13 bedar = Sun 2 Apr 2023
 ----------------------------------
 Reza Moghaddas
 rezamqds
+
+
+
+
+--- file inst ---
+
+Hello , for using this script run main.py in the main directory that u unzipped/cloned with python 3.10 or later 
+
+tahnks for your attention
+#RezaMoghaddas
+ mid-term project
+ nowrooz 402
+ 23 Apr 2023
+ 
+--- end inst ---
