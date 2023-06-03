@@ -1,0 +1,14 @@
+Sat Jun  3 15:30:21 2023[[Passenger name is : ('Reza', 'Moghaddas') , phone number is: 9170241067 
+Mabda is Shiraz and Maqsad is Bam
+Paidout: 224 $TOOMAN$ ]]
+
+Sat Jun  3 15:31:21 2023[[Passenger name is : ('Ali', 'A') , phone number is: 65 
+Mabda is Ass and Maqsad is Vss
+Paidout: 203 $TOOMAN$ ]]
+
+
+
+Sat Jun  3 15:35:37 2023[[Passenger name is : ('reza', 'moghaddas') , phone number is: 917 
+Mabda is Shiraz and Maqsad is Bam
+Paidout: 244 $TOOMAN$ ]]
+
