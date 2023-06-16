@@ -47,6 +47,25 @@ class Passenger:
         else:
             return "you should buy a ticket first!"
 
+           
+# inheritance -- Terminal and Passenger for Manager!         
+# class Manager          
+class Manager(Terminal,Passenger):
+ 	def __init__(self,name,age,sex,place,phoneNum):
+ 		self.__name=name
+ 		self.__age=age
+ 		self.__sex=sex
+ 		Terminal.__init__(place,phoneNum)
+ 	def changeD(self,name,age,sex):
+ 		self.__name=name
+ 		self.__age=age
+ 		self.__sex=sex
+ 	def sodoorBelit(self,mabda,maqsad):
+ 		Passenger.getTicket(mabda,maqsad)
+ 
+  
+
+
 # pssss =Passenger("name", "Lname", "phoneNum00")
 # pssss.showPas()
 # pssss.getTicket("shiraz", "tehran")
