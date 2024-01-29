@@ -109,7 +109,9 @@ def main():
     #     intervals.append(Interval(start, end, weight))
 
     shortestPaths = ShortestPath(intervals).computeShortestPaths()
-    for i, path in sorted(shortestPaths.items(), key=lambda x: x[0]):
+
+    shortestPaths = sorted(shortestPaths.items(), key=lambda x: x[1])
+    for i, path in shortestPaths:
         if path[0] != 1:
             print(i, -1)
         else:
