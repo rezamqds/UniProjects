@@ -29,8 +29,7 @@ class ShortestPath:
         self.specialInactiveStack = []
         self.succ = {}
 
-        for i, interval in enumerate(intervals):
-            self.succ[interval] = min(interval.end + 1, 105)
+
 
     def processIntervals(self, i):
         while True:
@@ -86,12 +85,28 @@ class ShortestPath:
 
         return paths
 
-if __name__ == '__main__':
+def parse_input(input_string):
+    lines = input_string.split("\n")
+    n = int(lines[0])
     intervals = []
-    n = int(input())
-    for _ in range(n):
-        start, end, weight = map(int, input().split())
-        intervals.append(Interval(start, end, weight))
+    for i in range(1, n + 1):
+        line = lines[i]
+        intervals.append([int(x) for x in line.split(" ")])
+    return intervals
+
+
+def main():
+    txt = open("sample.txt", "r")
+    input_txt = txt.read()
+    intervals = parse_input(input_txt)
+    print(intervals)
+
+    # intervals = []
+    #
+    # n = int(input())
+    # for _ in range(n):
+    #     start, end, weight = map(int, input().split())
+    #     intervals.append(Interval(start, end, weight))
 
     shortestPaths = ShortestPath(intervals).computeShortestPaths()
     for i, path in sorted(shortestPaths.items(), key=lambda x: x[0]):
@@ -99,3 +114,5 @@ if __name__ == '__main__':
             print(i, -1)
         else:
             print(i, path[1:])
+
+main()
