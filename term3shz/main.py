@@ -58,7 +58,7 @@ class ShortestPath:
         for k in interval.set:
             self.parent[k] = setId
 
-        # Merge the sets of the inactive intervals overlapping with interval
+        #overlap_intervals
         while len(self.specialInactiveStack) and self.specialInactiveStack[-1].end >= interval.end:
             specialInterval = self.specialInactiveStack.pop()
             self.union(interval.start, specialInterval.start)
@@ -68,7 +68,6 @@ class ShortestPath:
         for i in range(interval.end + 1, self.succ[interval]):
             interval.set.append(i)
 
-        self.activeStack.append(interval)
         self.specialInactiveStack.append(interval)
 
     def computeShortestPaths(self):
@@ -93,8 +92,6 @@ def parse_input(input_string):
         line = lines[i]
         intervals.append([int(x) for x in line.split(" ")])
     return intervals
-
-
 def main():
     txt = open("sample.txt", "r")
     input_txt = txt.read()
